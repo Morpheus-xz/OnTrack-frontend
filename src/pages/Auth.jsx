@@ -16,34 +16,31 @@ export default function Auth() {
   const [awaitingVerification, setAwaitingVerification] = useState(false);
 
   // 🔥 FIXED ROUTING LOGIC
-  async function routeUser(user) {
-  // 1️⃣ Check onboarding
-  const { data: onboarding, error: onboardingError } = await supabase
-    .from("user_onboarding")
-    .select("id")
+async function routeUser(user) {
+  const { data: state, error } = await supabase
+    .from("users_state")
+    .select("has_completed_onboarding, has_completed_assessment")
     .eq("user_id", user.id)
     .single();
 
-  if (onboardingError && onboardingError.code === "PGRST116") {
+  if (!state) {
     navigate("/onboarding");
     return;
   }
 
-  // 2️⃣ Check assessment
-  const { data: assessment, error: assessmentError } = await supabase
-    .from("user_assessment")
-    .select("id")
-    .eq("user_id", user.id)
-    .single();
+  if (!state.has_completed_onboarding) {
+    navigate("/onboarding");
+    return;
+  }
 
-  if (assessmentError && assessmentError.code === "PGRST116") {
+  if (!state.has_completed_assessment) {
     navigate("/assessment");
     return;
   }
 
-  // 3️⃣ Both exist → go dashboard
   navigate("/dashboard");
 }
+
 
 
   useEffect(() => {
