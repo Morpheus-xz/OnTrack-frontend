@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global theme */
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #0b0f2a, #05060f);
+  color: white;
+  font-family: "Inter", system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Starfield */
+.stars {
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: transparent;
+  z-index: -2;
+}
+
+.stars::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  box-shadow:
+    100px 200px white,
+    300px 500px white,
+    700px 400px white,
+    900px 800px white,
+    1200px 600px white,
+    1600px 900px white,
+    1900px 300px white;
+  animation: floatStars 60s linear infinite;
+}
+
+@keyframes floatStars {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
+}
+
+/* Grid */
+.grid-bg {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: -1;
+}
+
+/* Glow */
+.glow {
+  background: radial-gradient(circle, rgba(138,43,226,0.4), transparent 60%);
+  filter: blur(120px);
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  z-index: -1;
+}
