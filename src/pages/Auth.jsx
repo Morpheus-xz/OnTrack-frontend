@@ -177,7 +177,8 @@ export default function Auth() {
             onClick={googleLogin}
             className="w-full flex items-center justify-center gap-3 py-3 rounded-xl bg-white text-black font-black uppercase tracking-widest hover:scale-[1.02] transition"
           >
-            <img src="https://www.svgrepo.com/show/475656/google-color.svg" className="w-5" />
+            <img src="/google.png" className="w-5 h-5" alt="Google" />
+
             Continue with Google
           </button>
 
