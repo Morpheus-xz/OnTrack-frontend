@@ -1,16 +1,108 @@
-# React + Vite
+# OnTrack Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+OnTrack Frontend is the web application for the AI-driven career navigation platform, OnTrack. It manages user interactions, authentication flows, onboarding, assessments, dashboards, and visualizes AI-generated career roadmaps. The application is state-driven, ensuring it reacts solely to backend and database state, rather than predefined routes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features & Functionality
 
-## React Compiler
+- **Authentication**:
+  - Email-based and Google OAuth integration.
+- **State-based Routing**:
+  - Seamless navigation from Onboarding to Assessment and Dashboard, driven by backend state.
+- **Career Assessment UI**:
+  - Intuitive interfaces for assessing user skills and interests.
+- **Interactive Dashboard**:
+  - Career summary and progression tracking.
+  - Visualized skill gaps and tailored learning roadmaps.
+- **AI Career Coach UI**:
+  - Engaging career coaching powered by AI.
+- **Smooth UX**:
+  - Powered by Framer Motion for animations.
+  - Lenis smooth scrolling for an enhanced experience.
+- **Production Deployment**:
+  - Fully deployed on Vercel.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- React (Vite)
+- JavaScript
+- Tailwind CSS
+- Framer Motion
+- Supabase Auth
+- Vercel (Deployment)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Prerequisites & Setup
+
+### Requirements
+
+- Node.js 18+
+- Supabase project (URL + anon key)
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Morpheus-xz/OnTrack-frontend.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd ontrack-frontend
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+### Environment Variables
+
+Create a `.env` file with the following variables:
+
+```dotenv
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_anon_key
+VITE_BACKEND_URL=https://your-backend.onrender.com
+```
+
+### Run Locally
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+## Project Structure (High Level)
+
+```plaintext
+src/
+ ├── pages/
+ │   ├── Auth.jsx
+ │   ├── Onboarding.jsx
+ │   ├── Assessment.jsx
+ │   ├── Dashboard.jsx
+ ├── dashboard/
+ ├── components/
+ ├── lib/
+ │   └── supabase.js
+```
+
+## Contribution Guidelines
+
+- Avoid hardcoding navigation logic.
+- Routing should rely on Supabase state.
+- Keep UI logic isolated from backend logic.
+- Maintain accessibility and performance across all features.
+
+## Deployment
+
+- Hosted on [Vercel](https://vercel.com/).
+- Single Page Application (SPA) setup with routing fallback.
+- Environment variables are configured via the Vercel dashboard.
+
+## Additional Notes
+
+OnTrack Frontend is a key part of the full-stack system, designed to react to validated backend outputs:
+
+- AI decisions are guarded by backend logic and database constraints.
+- The frontend strictly adheres to validated responses from the backend, ensuring accuracy and consistency.
