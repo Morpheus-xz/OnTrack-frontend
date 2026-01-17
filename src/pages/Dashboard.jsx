@@ -79,7 +79,27 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen bg-transparent text-white flex font-inter selection:bg-blue-500/30">
-      <aside className="w-72 border-r border-white/5 bg-black/40 backdrop-blur-3xl flex flex-col fixed h-screen z-50 p-8">
+      <aside
+  className="
+    w-72
+    border-r border-white/5
+    bg-black/40
+    backdrop-blur-3xl
+    flex
+    flex-col
+    fixed
+    h-screen
+    z-50
+    p-8
+
+    overflow-y-auto
+    overflow-x-hidden
+    overscroll-contain
+
+    scrollbar-none
+  "
+>
+
         <div className="flex items-center gap-3 mb-12 cursor-pointer" onClick={() => navigate("/")}>
   <img
     src="/ontracklogo.png "
