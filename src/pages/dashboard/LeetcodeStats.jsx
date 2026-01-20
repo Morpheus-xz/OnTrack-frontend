@@ -16,7 +16,7 @@ export default function LeetcodeStats({ assessment }) {
     if (username) fetchLeetcodeData();
   }, [username]);
 
-  if (!username) return <StatusFrame message="No LeetCode profile connecte" />;
+  if (!username) return <StatusFrame message="No LeetCode profile connected" />;
   if (loading) return <StatusFrame message="Loading LeetCode data…" />;
 
   return (
